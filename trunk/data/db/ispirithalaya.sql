@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.10deb1
+-- version 3.3.2deb1ubuntu1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2011 at 11:31 AM
--- Server version: 5.1.54
--- PHP Version: 5.3.5-1ubuntu7.2
+-- Generation Time: Jun 26, 2012 at 11:21 AM
+-- Server version: 5.1.63
+-- PHP Version: 5.3.2-1ubuntu4.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `hospital`
+-- Database: `ispirithalaya`
 --
 
 -- --------------------------------------------------------
@@ -37,11 +37,6 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
   KEY `fk_user_id` (`create_by`,`change_by`,`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `admin_user`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -56,12 +51,7 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `sent` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `recd` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `chat`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -81,12 +71,7 @@ CREATE TABLE IF NOT EXISTS `checking` (
   `change_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`create_by`,`change_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `checking`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -107,12 +92,7 @@ CREATE TABLE IF NOT EXISTS `checking_patient_map` (
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`patient_id`,`create_by`,`change_by`),
   KEY `fk_checking_id` (`checking_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `checking_patient_map`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -128,12 +108,7 @@ CREATE TABLE IF NOT EXISTS `checking_time` (
   `to_time` time NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_checking_id` (`checking_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `checking_time`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -153,11 +128,6 @@ CREATE TABLE IF NOT EXISTS `checking_user` (
   KEY `fk_user_id` (`create_by`,`change_by`,`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `checking_user`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -175,12 +145,7 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   `change_by` int(11) NOT NULL,
   `change_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `doctor`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -202,12 +167,7 @@ CREATE TABLE IF NOT EXISTS `doctor_patient_map` (
   PRIMARY KEY (`id`),
   KEY `fk_doctor_id` (`doctor_id`),
   KEY `fk_user_id` (`patient_id`,`doctor_id`,`create_by`,`change_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `doctor_patient_map`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -222,12 +182,7 @@ CREATE TABLE IF NOT EXISTS `doctor_spe_map` (
   PRIMARY KEY (`id`),
   KEY `fk_doctor_id` (`doctor_id`),
   KEY `fk_special_id` (`specialist_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `doctor_spe_map`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -242,12 +197,7 @@ CREATE TABLE IF NOT EXISTS `doctor_time` (
   `from_time` time NOT NULL,
   `to_time` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `doctor_time`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -267,12 +217,7 @@ CREATE TABLE IF NOT EXISTS `labtest` (
   `change_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`change_by`,`create_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `labtest`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -293,12 +238,7 @@ CREATE TABLE IF NOT EXISTS `labtest_patient_map` (
   PRIMARY KEY (`id`),
   KEY `fk_labtest_id` (`lab_test_id`),
   KEY `fk_user_id` (`patient_id`,`create_by`,`change_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `labtest_patient_map`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -314,12 +254,7 @@ CREATE TABLE IF NOT EXISTS `labtest_time` (
   `to_time` time NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_labtest_id` (`labtest_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `labtest_time`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -339,11 +274,6 @@ CREATE TABLE IF NOT EXISTS `labtest_user` (
   KEY `fk_user_id` (`creat_by`,`user_id`,`change_by`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `labtest_user`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -362,12 +292,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `id_3` (`id`),
   KEY `id_2` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `patient`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -392,11 +317,6 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   KEY `fk_user_id` (`patient_id`,`create_by`,`change_by`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `reservation`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -415,11 +335,6 @@ CREATE TABLE IF NOT EXISTS `reservation_user` (
   KEY `fk_user_id` (`create_by`,`change_by`,`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `reservation_user`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -432,19 +347,6 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `role`
---
-
-INSERT INTO `role` (`id`, `name`) VALUES
-(1, 'admin'),
-(2, 'doctor'),
-(3, 'lbuser'),
-(4, 'chuser'),
-(5, 'rsuser'),
-(6, 'nmuser'),
-(7, 'patient');
 
 -- --------------------------------------------------------
 
@@ -464,12 +366,7 @@ CREATE TABLE IF NOT EXISTS `room` (
   `change_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`create_by`,`change_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `room`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -483,19 +380,6 @@ CREATE TABLE IF NOT EXISTS `specialties` (
   `description` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `specialties`
---
-
-INSERT INTO `specialties` (`id`, `title`, `description`) VALUES
-(1, 'Acupuncture ', 'Uses procedures adapted from Chinese medicine to relieve pain or for therapeutic purposes.'),
-(2, 'Addiction Medicine ', 'Works with patients who have substance abuse disorders. Specializes in prevention, diagnosis, treatment of withdrawal, medical or psychiatric complications, relapse, and the monitoring of recovery.'),
-(3, 'Adolescent Medicine ', 'Focused on the care of people in the second decade of life. Problems in adolescence include sexual experiences resulting in pregnancies and sexually transmitted diseases, drug and alcohol use, violence-related behaviors, and reckless use of motor vehicles.'),
-(4, 'Aerospace Medicine ', 'Focused on the health of the crew, passengers, and support personnel of air and space vehicles.'),
-(5, 'Allergy ', 'Allergists diagnose and treat reactions due to irritating agents or allergens including foods, medicines, and pollens.'),
-(6, 'Allergy/Immunology ', 'Concerned with the evaluation, diagnosis, and management of disorders involving the immune system, including asthma, eczema, allergic reactions, problems related to autoimmune disease, organ transplantation, and immune system malignancies.'),
-(7, 'Anesthesiology ', 'Provides relief from pain and maintains or restores a stable condition during surgical, obstetric, or diagnostic procedures.');
 
 -- --------------------------------------------------------
 
@@ -527,9 +411,34 @@ CREATE TABLE IF NOT EXISTS `user` (
   `online_status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`create_by`,`change_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+
+INSERT INTO `role` (`id`, `name`) VALUES
+(1, 'admin'),
+(2, 'doctor'),
+(3, 'lbuser'),
+(4, 'chuser'),
+(5, 'rsuser'),
+(6, 'nmuser'),
+(7, 'patient');
+
+--
+-- Dumping data for table `specialties`
+--
+
+INSERT INTO `specialties` (`id`, `title`, `description`) VALUES
+(1, 'Acupuncture ', 'Uses procedures adapted from Chinese medicine to relieve pain or for therapeutic purposes.'),
+(2, 'Addiction Medicine ', 'Works with patients who have substance abuse disorders. Specializes in prevention, diagnosis, treatment of withdrawal, medical or psychiatric complications, relapse, and the monitoring of recovery.'),
+(3, 'Adolescent Medicine ', 'Focused on the care of people in the second decade of life. Problems in adolescence include sexual experiences resulting in pregnancies and sexually transmitted diseases, drug and alcohol use, violence-related behaviors, and reckless use of motor vehicles.'),
+(4, 'Aerospace Medicine ', 'Focused on the health of the crew, passengers, and support personnel of air and space vehicles.'),
+(5, 'Allergy ', 'Allergists diagnose and treat reactions due to irritating agents or allergens including foods, medicines, and pollens.'),
+(6, 'Allergy/Immunology ', 'Concerned with the evaluation, diagnosis, and management of disorders involving the immune system, including asthma, eczema, allergic reactions, problems related to autoimmune disease, organ transplantation, and immune system malignancies.'),
+(7, 'Anesthesiology ', 'Provides relief from pain and maintains or restores a stable condition during surgical, obstetric, or diagnostic procedures.');
 
 --
 -- Dumping data for table `user`
 --
 
+INSERT INTO `user` (`id`, `email`, `password`, `title`, `first_name`, `last_name`, `initials`, `bday`, `tel_no`, `address1`, `address2`, `city`, `country`, `image`, `role_id`, `status`, `create_by`, `create_on`, `change_by`, `change_on`, `online_status`) VALUES
+(1, 'admin@ispirithalaya.com', '0192023a7bbd73250516f069df18b500', 'Mr.', 'Admin', 'User', 'I', '0000-00-00', 0, '', '', '', 'Sri Lanka', NULL, 1, 1, 0, '2012-06-26 11:23:47', 0, '2012-06-26 11:24:16', 1);
