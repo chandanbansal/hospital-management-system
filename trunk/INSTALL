@@ -1,0 +1,11 @@
+Ispirithalaya is very simple zend project. You can install is very simple way.
+
+    Download Ispirithalaya source.
+    Extract to web server.
+    Download Zend Framework Full Package. http://framework.zend.com/download/latest
+    Add Zend and ZendX libraries to ispirithalaya/library.
+    Make database with name ispirithalaya.
+    Import database at ispirithalaya/data/db/ispirithalaya.sql (import ispirithalaya-data.sql to sample data)
+    Edit database details in ispirithalaya/application/configs/application.ini Change ispirithalaya directory owner to web user.
+
+Enjoy ispirithalaya. 
