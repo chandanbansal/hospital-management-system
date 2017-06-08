@@ -2,9 +2,9 @@
 
 This is free and open source project for implement hospital system as easy way and forked from https://sourceforge.net/p/ispirithalaya/wiki/Home/
 
-_Contribution are always welcome, feel free to fork it_
+_Contributions are always welcome, feel free to fork it_
 
-Following function are included in this Tool.
+**Following function are included in this Tool.**
 
  - Online Doctor Channelling
  - Online Payments (with out gate way)
@@ -34,16 +34,16 @@ Following function are included in this Tool.
  - Staff Record Maintenance.
  
  
- **Some Screenshots**
- 
-![](https://github.com/chandanbansal/gmail-backup/blob/master/screenshots/1.png)
+**Some Screenshots**
 
-![](https://github.com/chandanbansal/gmail-backup/blob/master/screenshots/2.png)
+![](https://github.com/chandanbansal/hospital-management-system/blob/master/screenshots/1.png)
 
-![](https://github.com/chandanbansal/gmail-backup/blob/master/screenshots/3.png)
+![](https://github.com/chandanbansal/hospital-management-system/blob/master/screenshots/2.png)
 
-![](https://github.com/chandanbansal/gmail-backup/blob/master/screenshots/4.png)
+![](https://github.com/chandanbansal/hospital-management-system/blob/master/screenshots/3.png)
 
-![](https://github.com/chandanbansal/gmail-backup/blob/master/screenshots/5.png)
+![](https://github.com/chandanbansal/hospital-management-system/blob/master/screenshots/4.png)
 
-![](https://github.com/chandanbansal/gmail-backup/blob/master/screenshots/6.png)
+![](https://github.com/chandanbansal/hospital-management-system/blob/master/screenshots/5.png)
+
+![](https://github.com/chandanbansal/hospital-management-system/blob/master/screenshots/6.png)
